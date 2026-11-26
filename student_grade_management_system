@@ -1,0 +1,55 @@
+print("===== STUDENT GRADE MANAGEMENT SYSTEM =====")
+
+students = {}
+
+number = int(input("\nEnter number of students: "))
+
+# Collect student information
+for i in range(number):
+    print(f"\nStudent {i + 1}")
+    name = input("Enter name: ")
+    grade = int(input("Enter grade: "))
+
+    students[name] = grade
+
+# Initialize variables
+total = 0
+highest = 0
+lowest = 100
+passed = 0
+failed = 0
+
+print("\n========== STUDENT RECORDS ==========")
+print(f"{'Name':<14}{'Grade':<12}{'Remarks'}")
+
+# Process student records
+for name, grade in students.items():
+
+    total += grade
+
+    if grade > highest:
+        highest = grade
+
+    if grade < lowest:
+        lowest = grade
+
+    if grade >= 75:
+        remarks = "Passed"
+        passed += 1
+    else:
+        remarks = "Failed"
+        failed += 1
+
+    print(f"{name:<14}{grade:<12}{remarks}")
+
+# Calculate class average
+average = total / len(students)
+
+# Display class summary
+print("\n========== CLASS SUMMARY ============")
+print(f"Total Students : {len(students)}")
+print(f"Class Average  : {average:.2f}")
+print(f"Highest Grade  : {highest}")
+print(f"Lowest Grade   : {lowest}")
+print(f"Passed Students: {passed}")
+print(f"Failed Students: {failed}")
