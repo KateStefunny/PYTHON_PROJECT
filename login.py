@@ -7,7 +7,7 @@ import os
 
 import streamlit as st
 
-
+st.title("Registration")
 def check_credentials(username: str, password: str) -> bool:
     """Compare credentials with local configuration (demo defaults)."""
     expected_user = os.getenv("DASHBOARD_USERNAME", "admin")
